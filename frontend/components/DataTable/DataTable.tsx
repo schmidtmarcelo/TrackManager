@@ -53,8 +53,8 @@ const DataTable: React.FC<DataTableProps> = ({ data, columns }) => {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
-              {data.map((row, index) => (
-                <tr key={index}>
+              {data.map((row) => (
+                <tr key={row.id}>
                   <td className="py-3 pl-4">
                     <div className="flex items-center h-5">
                       <input type="checkbox"
@@ -91,9 +91,9 @@ const DataTable: React.FC<DataTableProps> = ({ data, columns }) => {
           </tr>
         </thead>
         <tbody>
-          {data.map((row, index) => (
-            <tr key={index} className="text-gray-700">
-              {columns.map((column) => (
+          {data.map((row) => (
+            <tr key={row.id} className="text-gray-700">
+              {columns.map((column) => ( 
                 <td key={column.key} className=" px-4 py-2">
                   {row[column.key]}
                 </td>

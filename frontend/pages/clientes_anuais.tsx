@@ -17,7 +17,7 @@ const ClientesAnuais: React.FC = () => {
       .then(response => response.json())
       .then(data => {
         setData(data);
-        console.log(data);
+
       })
 
       .catch(error => console.error(error));
@@ -33,7 +33,7 @@ const ClientesAnuais: React.FC = () => {
       title: 'Cliente',
       render: (value: any) => value?.clienteAssociation?.nome_empresa || '-'
     },
-    { key: 'clienteAssociation.chip_m2m', title: 'chip_m2m' },
+    { key: 'chip_m2m', title: 'chip_m2m' },
     { key: 'operadora', title: 'OPERADORA' },
     { key: 'valor', title: 'VALOR' },
     { key: 'data_da_compra', title: 'DATA DA COMPRA' },
