@@ -1,0 +1,8 @@
+1 - Ter instalado: git, npm, postgres;
+2 - Clonar o projeto: https://github.com/schmidtmarcelo/avaliacao-be.git
+3 - Acessar a pasta do projeto via terminal e executar npm i(ou npm install)
+4 - Criar o banco: sequelize db:create avaliacao
+5 - Rodar o migrate: sequelize db:migrate
+6 - Executar a aplicaçao, no meu caso npx src/index
+ 
+	
