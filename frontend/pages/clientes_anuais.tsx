@@ -4,12 +4,6 @@ import Layout from '@/components/layout/Layout';
 
 const ClientesAnuais: React.FC = () => {
 
-  /*const data = [
-    { id: 1, name: 'John', age: 25, email: 'john@example.com' },
-    { id: 2, name: 'Jane', age: 30, email: 'jane@example.com' },
-    { id: 3, name: 'Bob', age: 35, email: 'bob@example.com' },
-  ];*/
-
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -17,7 +11,6 @@ const ClientesAnuais: React.FC = () => {
       .then(response => response.json())
       .then(data => {
         setData(data);
-
       })
 
       .catch(error => console.error(error));
@@ -28,11 +21,7 @@ const ClientesAnuais: React.FC = () => {
   const columns = [
     { key: 'id', title: 'id' },
     { key: 'chip_ccid', title: 'CHIP CCID' },
-    { 
-      key: 'clienteAssociation.nome_empresa', 
-      title: 'Cliente',
-      render: (value: any) => value?.clienteAssociation?.nome_empresa || '-'
-    },
+    { key: 'nome_empresa', title: 'Cliente' },
     { key: 'chip_m2m', title: 'chip_m2m' },
     { key: 'operadora', title: 'OPERADORA' },
     { key: 'valor', title: 'VALOR' },

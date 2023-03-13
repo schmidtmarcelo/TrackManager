@@ -4,7 +4,8 @@
   "description": "Backend do TrackManager",
   "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "nodemon src/index"
   },
   "author": "Marcelo Rodrigo Schmidt",
   "license": "ISC",

@@ -12,9 +12,9 @@ import VideosIcon from "../icons/VideosIcon";
 
 const menuItems = [
   { id: 1, label: "Início", icon: HomeIcon, link: "/" },
-  { id: 2, label: "Clientes Anuais", icon: ArticleIcon, link: "/clientes_anuais" },
-  { id: 3, label: "Manage Users", icon: UsersIcon, link: "/users" },
-  { id: 4, label: "Manage Tutorials", icon: VideosIcon, link: "/tutorials" },
+  //{ id: 2, label: "Clientes Anuais", icon: ArticleIcon, link: "/clientes_anuais" },
+  { id: 3, label: "Clientes Anuais 1", icon: UsersIcon, link: "/users" },
+  { id: 4, label: "Clientes Anuais 2", icon: VideosIcon, link: "/tutorials" },
 ];
 
 const Sidebar = () => {
@@ -31,7 +31,7 @@ const Sidebar = () => {
   const wrapperClasses = classNames(
     "h-screen px-4 pt-8 pb-4 flex justify-between flex-col",
     {
-      ["w-80"]: !toggleCollapse,
+      ["w-60"]: !toggleCollapse,
       ["w-20"]: toggleCollapse,
     }
   );

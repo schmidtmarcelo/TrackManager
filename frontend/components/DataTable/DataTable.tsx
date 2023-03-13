@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 interface DataTableProps {
   data: {
@@ -10,12 +10,25 @@ interface DataTableProps {
   }[];
 }
 
+
 const DataTable: React.FC<DataTableProps> = ({ data, columns }) => {
+
+  const [currentPage, setCurrentPage] = useState(0);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
+
+  const startIndex = currentPage * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentData = data.slice(startIndex, endIndex);
+
+  const handlePageClick = ({ selected }) => {
+    setCurrentPage(selected);
+  };
+
   return (
     <div className="overflow-x-auto">
-      <div className="p-1.5 w-full inline-block align-middle">
+      <div className="p-1.5 w-full inline-block align-middle ">
         <div className="overflow-hidden border rounded-lg">
-          <table className="min-w-full divide-y divide-gray-200">
+          <table className="min-w-full divide-y divide-gray-200 table-auto">
             <thead className="bg-gray-50">
               <tr className="bg-gray-200 text-gray-800">
                 <th scope="col" className="py-3 pl-4">
@@ -53,7 +66,7 @@ const DataTable: React.FC<DataTableProps> = ({ data, columns }) => {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
-              {data.map((row) => (
+              {currentData.map((row) => (
                 <tr key={row.id}>
                   <td className="py-3 pl-4">
                     <div className="flex items-center h-5">
@@ -63,7 +76,7 @@ const DataTable: React.FC<DataTableProps> = ({ data, columns }) => {
                     </div>
                   </td>
                   {columns.map((column) => (
-                    <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
+                    <td key={column.key} className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
                       {row[column.key]}
                     </td>
                   ))}
@@ -80,28 +93,7 @@ const DataTable: React.FC<DataTableProps> = ({ data, columns }) => {
         </div>
       </div>
 
-      <table className="table-auto p-3">
-        <thead>
-          <tr className="bg-gray-200 text-gray-800">
-            {columns.map((column) => (
-              <th key={column.key} className="px-4 py-2 text-left font-bold">
-                {column.title}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((row) => (
-            <tr key={row.id} className="text-gray-700">
-              {columns.map((column) => ( 
-                <td key={column.key} className=" px-4 py-2">
-                  {row[column.key]}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+
     </div>
   );
 };
