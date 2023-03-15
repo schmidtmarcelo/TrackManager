@@ -12,15 +12,19 @@ module.exports = {
       },
       chip_ccid: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        references: {model: "chips_m2ms", key: "id"},
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
       numero: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      operadora: {
-        type: Sequelize.STRING,
-        allowNull: false,
+      operadora_id: {
+        type: Sequelize.INTEGER,
+        references: {model: "operadoras", key: "id"},
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
       cliente_id: {
         type: Sequelize.INTEGER,

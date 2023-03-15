@@ -31,14 +31,12 @@ const tutorials = () => {
   }, []);
 
   const columns = [
-    { key: 'id', title: 'ID' },
-    { key: 'chip_ccid', title: 'CHIP CCID' },
+    { key: 'ccid', title: 'CHIP CCID' },
     { key: 'nome_empresa', title: 'CLIENTE' },
-    { key: 'chip_m2m', title: 'CHIP M2M' },
+    { key: 'numero', title: 'CHIP M2M' },
     { key: 'operadora', title: 'OPERADORA' },
     { key: 'valor', title: 'VALOR' },
     { key: 'data_da_compra', title: 'DATA DA COMPRA' },
-    { key: 'status_do_pagamento', title: 'STATUS DO PAGAMENTO' },
     { key: 'proxima_cobranca', title: 'PRÓXIMA COBRANÇA' }
   ];
 
@@ -121,7 +119,7 @@ const tutorials = () => {
 
   return (
     <Layout>
-      <div className="table-container p-20">
+      <div className="table-container py-40">
         <div>
           <input
             type="text"
@@ -156,7 +154,9 @@ const tutorials = () => {
               <tr key={row.id} className="table-row whitespace-nowrap ">
                 {columns.map((column) => (
                   <td key={column.key} className="table-cell">
-                    {row[column.key]}
+                    {column.key==="data_da_compra" || column.key==="proxima_cobranca" ? 
+                    new Date(row[column.key]).toLocaleDateString('pt-BR') :
+                    row[column.key]}
                   </td>
                 ))}
               </tr>

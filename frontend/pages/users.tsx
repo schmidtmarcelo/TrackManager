@@ -32,14 +32,12 @@ const users = () => {
   }, []);
 
   const columns = [
-    { key: 'id', title: 'ID' },
-    { key: 'chip_ccid', title: 'CHIP CCID' },
+    { key: 'ccid', title: 'CHIP CCID' },
     { key: 'nome_empresa', title: 'CLIENTE' },
-    { key: 'chip_m2m', title: 'CHIP M2M' },
+    { key: 'numero', title: 'CHIP NÚMERO' },
     { key: 'operadora', title: 'OPERADORA' },
     { key: 'valor', title: 'VALOR' },
     { key: 'data_da_compra', title: 'DATA DA COMPRA' },
-    { key: 'status_do_pagamento', title: 'STATUS DO PAGAMENTO' },
     { key: 'proxima_cobranca', title: 'PRÓXIMA COBRANÇA' }
   ];
 
@@ -119,7 +117,7 @@ const users = () => {
       <div className="container mx-auto ">
         <div className="flex flex-col ">
           <div className="w-full ">
-            <div className="p-8 border-b shadow table-container">
+            <div className="py-40 border-b shadow table-container">
               <div className="">
                 <input
                   type="text"
@@ -154,7 +152,9 @@ const users = () => {
                     <tr key={row.id} className="whitespace-nowrap ">
                       {columns.map((column) => (
                         <td key={column.key} className="px-6 py-4 text-sm">
-                          {row[column.key]}
+                          {column.key === "data_da_compra" || column.key === "proxima_cobranca" ?
+                            new Date(row[column.key]).toLocaleDateString('pt-BR') :
+                            row[column.key]}
                         </td>
                       ))}
                       {/* <td >

@@ -6,9 +6,9 @@ const ClienteAnual = sequelize.define("clientes_anuais", {
   chip_ccid: DataTypes.INTEGER,
   cliente_id: DataTypes.INTEGER,
   numero: DataTypes.STRING,
-  operadora: DataTypes.STRING,
+  operadora_id: DataTypes.INTEGER,
   valor: DataTypes.STRING,
-  data_da_compra: DataTypes.STRING,
+  data_da_compra: DataTypes.DATE,
   status_do_pagamento: DataTypes.STRING,
   proxima_cobranca: DataTypes.STRING,
   r_auth: DataTypes.INTEGER
